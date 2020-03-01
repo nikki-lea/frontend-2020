@@ -39,4 +39,25 @@ Functions are hoisted first, then variables. Hoisting essentially means that the
 ### Closures
 Closure is when a function is able to remember and access its lexical scope even when the function is executing outside its lexical scope. This is why you're able to pass references to functions to child components and have them execute outside their lexical scope, but still access the scope defined within the function.
 
+### What is _this_ ??????
+Just use the W3 Schools reference.
+Is **this** in a method of an object?
+The scope referenced is the global object, or the "owner" of the method. Note that if you have a method inside of a method, and the method uses **this**, then it loses its scope and is bound to the global object.'
+
+Is **this** global scope?
+Then it references the global object's scope.
+
+Is **this** used in an event handler?
+**this** references the HTML element that received the event. 
+
+### On Using Arrow Functions
+
+
+### Getting Around JavaScript Scoping
+.call()
+
+
+
+
+
 
