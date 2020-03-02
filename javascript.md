@@ -42,7 +42,7 @@ Closure is when a function is able to remember and access its lexical scope even
 ### What is _this_ ??????
 Just use the W3 Schools reference.
 Is **this** in a method of an object?
-The scope referenced is the global object, or the "owner" of the method. Note that if you have a method inside of a method, and the method uses **this**, then it loses its scope and is bound to the global object.'
+The scope referenced is the global object, or the "owner" of the method. Note that if you have a method inside of a method, and the method uses **this**, then it loses its scope and is bound to the global object.' Function context is also defined only when _calling_ your function, not when defining it (see .bind()).
 
 Is **this** global scope?
 Then it references the global object's scope.
@@ -54,10 +54,17 @@ Is **this** used in an event handler?
 
 
 ### Getting Around JavaScript Scoping
-.call()
+.call() & .apply()
+These have the syntax `objectName.call(this)` and return immediately, applying the scope of **this** to the object. The only difference between these two are the way that they accept arguments. .call() accepts multiple comma separated arguments, whereas apply accepts an array of arguments. Note that you typically will use these two if use a method from one object in a completely different scope.
+To me, I would question the design of using this rather than pulling the method out of the scope of both classes in a separate file.
+
+.bind()
+Handy method that allows you to define assign a reference to a new version of the function with a different scope that **this** refers to. The most common use case for this is in callbacks such as event handlers, where you define it as follows `this.handleClick = this.handleClick.bind(this);`. Generally speaking, if you refer to a method in a react component without immediately invoking it with (), then you most likely need to bind it to the global context of the component. Otherwise, **this** will be undefined. 
 
 
-
-
-
+References:
+https://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/
+https://spin.atomicobject.com/2014/10/20/javascript-scope-closures/
+https://medium.com/@nickbalestra/javascripts-lexical-scope-hoisting-and-closures-without-mystery-c2324681d4be
+https://www.w3schools.com/js/js_this.asp
 
