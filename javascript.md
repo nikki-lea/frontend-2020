@@ -54,11 +54,11 @@ Is **this** used in an event handler?
 
 
 ### Getting Around JavaScript Scoping
-.call() & .apply()
+.call() & .apply()  
 These have the syntax `objectName.call(this)` and return immediately, applying the scope of **this** to the object. The only difference between these two are the way that they accept arguments. .call() accepts multiple comma separated arguments, whereas apply accepts an array of arguments. Note that you typically will use these two if use a method from one object in a completely different scope.
 To me, I would question the design of using this rather than pulling the method out of the scope of both classes in a separate file.
 
-.bind()
+.bind()  
 Handy method that allows you to define assign a reference to a new version of the function with a different scope that **this** refers to. The most common use case for this is in callbacks such as event handlers, where you define it as follows `this.handleClick = this.handleClick.bind(this);`. Generally speaking, if you refer to a method in a react component without immediately invoking it with (), then you most likely need to bind it to the global context of the component. Otherwise, **this** will be undefined. 
 
 
