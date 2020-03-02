@@ -40,8 +40,8 @@ Functions are hoisted first, then variables. Hoisting essentially means that the
 Closure is when a function is able to remember and access its lexical scope even when the function is executing outside its lexical scope. This is why you're able to pass references to functions to child components and have them execute outside their lexical scope, but still access the scope defined within the function.
 
 ### What is _this_ ??????
-Just use the W3 Schools reference.
-Is **this** in a method of an object?
+Just use the W3 Schools reference.  
+Is **this** in a method of an object?  
 The scope referenced is the global object, or the "owner" of the method. Note that if you have a method inside of a method, and the method uses **this**, then it loses its scope and is bound to the global object.' Function context is also defined only when _calling_ your function, not when defining it (see .bind()).
 
 Is **this** global scope?
@@ -63,8 +63,8 @@ Handy method that allows you to define assign a reference to a new version of th
 
 
 References:
-https://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/
-https://spin.atomicobject.com/2014/10/20/javascript-scope-closures/
-https://medium.com/@nickbalestra/javascripts-lexical-scope-hoisting-and-closures-without-mystery-c2324681d4be
-https://www.w3schools.com/js/js_this.asp
+https://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/  
+https://spin.atomicobject.com/2014/10/20/javascript-scope-closures/  
+https://medium.com/@nickbalestra/javascripts-lexical-scope-hoisting-and-closures-without-mystery-c2324681d4be  
+https://www.w3schools.com/js/js_this.asp  
 
