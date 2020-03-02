@@ -63,8 +63,8 @@ Handy method that allows you to define assign a reference to a new version of th
 
 
 References:
-https://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/  
-https://spin.atomicobject.com/2014/10/20/javascript-scope-closures/  
-https://medium.com/@nickbalestra/javascripts-lexical-scope-hoisting-and-closures-without-mystery-c2324681d4be  
-https://www.w3schools.com/js/js_this.asp  
+- https://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/  
+- https://spin.atomicobject.com/2014/10/20/javascript-scope-closures/  
+- https://medium.com/@nickbalestra/javascripts-lexical-scope-hoisting-and-closures-without-mystery-c2324681d4be  
+- https://www.w3schools.com/js/js_this.asp  
 
