@@ -1,11 +1,11 @@
 # On Javascript
-[Lexical Scope and Closures](#lexical-scope-and-closures)
-[Hoisting](#hoisting)
-[Closures](#closures)
-[Scoping and this keyword](#what-is-this)
-[Arrow Functions](#on-using-arrow-functions)
-[Call, Apply, and Bind](#getting-around-javascript-scoping)
-[Prototypal Inheritance](#prototypal-inheritance)
+[Lexical Scope and Closures](#lexical-scope-and-closures)  
+[Hoisting](#hoisting)  
+[Closures](#closures)  
+[Scoping and this keyword](#what-is-this)  
+[Arrow Functions](#on-using-arrow-functions)  
+[Call, Apply, and Bind](#getting-around-javascript-scoping)  
+[Prototypal Inheritance](#prototypal-inheritance)  
 
 ### Lexical scope and closures
 
