@@ -51,7 +51,26 @@ Is **this** used in an event handler?
 **this** references the HTML element that received the event. 
 
 ### On Using Arrow Functions
+Arrow functions are anonymous functions in JavaScript. Unlike methods, they inherit context from the parent. In the below example, the anon function prints `undefined` whereas the arrow function prints `test object`.
 
+```
+const test = {
+  name: 'test object',
+  createAnonFunction: function() {
+    return function() {
+      console.log(this.name);
+      console.log(arguments);
+    };
+  },
+
+  createArrowFunction: function() {
+    return () => {
+      console.log(this.name);
+      console.log(arguments);
+    };
+  }
+};
+```
 
 ### Getting Around JavaScript Scoping
 .call() & .apply()  
