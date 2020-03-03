@@ -71,6 +71,15 @@ const test = {
   }
 };
 ```
+Arrow functions are typically used in the following cases:
+- Functional programming, i.e. `map`, `forEach`
+- Promise chains
+- Mapping object attributes
+
+Arrow functions are not good for:
+- clickHandlers, or objects within a class that should use the scope of the class
+    - In this case bind in the constructor
+- Deep call chains, since they don't offer helpful stack traces
 
 ### Getting Around JavaScript Scoping
 .call() & .apply()  
@@ -86,4 +95,4 @@ References:
 - https://spin.atomicobject.com/2014/10/20/javascript-scope-closures/  
 - https://medium.com/@nickbalestra/javascripts-lexical-scope-hoisting-and-closures-without-mystery-c2324681d4be  
 - https://www.w3schools.com/js/js_this.asp  
-
+- https://zendev.com/2018/10/01/javascript-arrow-functions-how-why-when.html
