@@ -1,4 +1,5 @@
 # On Javascript
+- [Lexical Scope and Closures](#lexical-scope-and-closures)
 
 ### Lexical scope and closures
 
@@ -109,3 +110,4 @@ References:
 - https://medium.com/@nickbalestra/javascripts-lexical-scope-hoisting-and-closures-without-mystery-c2324681d4be  
 - https://www.w3schools.com/js/js_this.asp  
 - https://zendev.com/2018/10/01/javascript-arrow-functions-how-why-when.html
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
