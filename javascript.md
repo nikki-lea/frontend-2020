@@ -6,8 +6,8 @@
 [Arrow Functions](#on-using-arrow-functions)  
 [Call, Apply, and Bind](#getting-around-javascript-scoping)  
 [Prototypal Inheritance](#prototypal-inheritance)  
-[Mixins](#mixins)
-[Higher Order Functions](#higher-order-functions)
+[Mixins](#mixins)  
+[Higher Order Functions](#higher-order-functions)  
 
 ### Lexical scope and closures
 
