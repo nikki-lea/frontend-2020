@@ -108,11 +108,23 @@ o.[[Prototype]] = Foo.prototype;
 Foo.call(o);
 ```
 
+### Mixins 
+Mixins are a form of _object composition_, where properties of the mixin become properties of the destination object. 
+For example, if each below object contains a single method, you can mix them together as follows:
+```
+const compositeDesserts = Object.assign(Dessert.prototype, chocolate);
+```
+Mixins can be used for cross functional utilities, as well as applications state management. Note that mixins are mostly useful to avoid anti-patterns by forcing things into an is-a inheritance pattern. Mixins are an example of using _composition_ in place of inheritance. This avoids the 'god object' problem, where a parent object becomes more difficult to change as the requirements of child objects change. 
+
+### Higher Order Functions
+Higher order functions are simply functions that accept a function as an argument, or return a function. 
 
 References:
 - https://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/  
 - https://spin.atomicobject.com/2014/10/20/javascript-scope-closures/  
 - https://medium.com/@nickbalestra/javascripts-lexical-scope-hoisting-and-closures-without-mystery-c2324681d4be  
 - https://www.w3schools.com/js/js_this.asp  
+- https://medium.com/code-monkey/object-composition-in-javascript-2f9b9077b5e6
 - https://zendev.com/2018/10/01/javascript-arrow-functions-how-why-when.html
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+- https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c
