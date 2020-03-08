@@ -8,6 +8,9 @@
 [Prototypal Inheritance](#prototypal-inheritance)  
 [Mixins](#mixins)  
 [Higher Order Functions](#higher-order-functions)  
+[Event Delegation](#event-delegation)    
+[Event Propagation](#event-propagation-and-phases)  
+[Event Bubbling](#event-bubbling)
 
 ### Lexical scope and closures
 
@@ -121,6 +124,19 @@ Mixins can be used for cross functional utilities, as well as applications state
 ### Higher Order Functions
 Higher order functions are simply functions that accept a function as an argument, or return a function. 
 
+### Event Delegation
+First things first, you add an an event listener to an HTML element with `addEventlistener(eventType, element)`. Note that when you find an element with methods such as `document.getElementId` this element MUST be present at load time. Event delegatiion allows you to set `addEventListener` to the parent container that will be present at page load, and the event listener will be attached to all children of that parent. This distinction is made in the event object itself, where `event.target` references the element that triggered the event, but `event.currentTarget` references the element to which the listener is attached. One useful thing is to make your event handler smart enough to filter out on the elements that it cares about by checking `event.target`. 
+
+### Event Propagation and Phases
+Event propagation is how event delegation is carried out, and can consist of three differe phases of DOM events: capturing, targeting, and bubbling. 
+![Propagation table](https://frontend.turing.io/assets/images/eventpropagation.png)
+Linked from https://frontend.turing.io/lessons/module-1/event-bubbling-and-delegation.html
+
+If you're receiving event propagation that you would not like, you can leverage methods such as `stopPropagation` or `stopImmediatePropagation` to remove propagation that occurs on siblings or parent/children nodes. As a tangent, some events have default behavior they invoke, so you can leverage the `e.preventDefault` method to cancel the event behavior. 
+
+### Event Bubbling
+Bubbling is one of the phases of event propagation, and the one that allows event delegation to happen.  When you trigger an event on an element, the event 'bubbles' up to all parent elements of the element. In other words, when you click an element, you are clicking also on all the parents of that element up to the document body. Some events are exceptions though, such as `focus`, `blur`, and events that fire on the entire document itself, such as `load`, `error`, etc.
+
 References:
 - https://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/  
 - https://spin.atomicobject.com/2014/10/20/javascript-scope-closures/  
@@ -130,3 +146,5 @@ References:
 - https://zendev.com/2018/10/01/javascript-arrow-functions-how-why-when.html
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 - https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c
+- https://medium.com/@bretdoucette/part-4-what-is-event-delegation-in-javascript-f5c8c0de2983
+
