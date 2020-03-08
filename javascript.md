@@ -128,9 +128,9 @@ Higher order functions are simply functions that accept a function as an argumen
 First things first, you add an an event listener to an HTML element with `addEventlistener(eventType, element)`. Note that when you find an element with methods such as `document.getElementId` this element MUST be present at load time. Event delegatiion allows you to set `addEventListener` to the parent container that will be present at page load, and the event listener will be attached to all children of that parent. This distinction is made in the event object itself, where `event.target` references the element that triggered the event, but `event.currentTarget` references the element to which the listener is attached. One useful thing is to make your event handler smart enough to filter out on the elements that it cares about by checking `event.target`. 
 
 ### Event Propagation and Phases
-Event propagation is how event delegation is carried out, and can consist of three differe phases of DOM events: capturing, targeting, and bubbling. 
-![Propagation table](https://frontend.turing.io/assets/images/eventpropagation.png)
-Linked from https://frontend.turing.io/lessons/module-1/event-bubbling-and-delegation.html
+Event propagation is how event delegation is carried out, and can consist of three differe phases of DOM events: capturing, targeting, and bubbling.  
+![Propagation table](https://frontend.turing.io/assets/images/eventpropagation.png)  
+Linked from https://frontend.turing.io/lessons/module-1/event-bubbling-and-delegation.html  
 
 If you're receiving event propagation that you would not like, you can leverage methods such as `stopPropagation` or `stopImmediatePropagation` to remove propagation that occurs on siblings or parent/children nodes. As a tangent, some events have default behavior they invoke, so you can leverage the `e.preventDefault` method to cancel the event behavior. 
 
