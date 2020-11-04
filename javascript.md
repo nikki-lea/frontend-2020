@@ -25,7 +25,14 @@ function foo() {
 console.log(a); // 1
 foo();          // 10
 ```
-This demonstrates variable shadowing. In the case of `let` vs `var` in JavaScript, `let` binds a variables scope to whichever block it is contained within. This is because unless you are running in ES6 `strict mode`, the global scope will create a variable for you if it is not in scope. Using `let` will enforce that the variable is only used in the scope in which its declared. `let` avoids variable shadowing and other nastyness.
+This demonstrates variable shadowing. In the case of `let` vs `var` in JavaScript, `let` binds a variables scope to whichever block it is contained within. This is because unless you are running in ES6 `strict mode`, the global scope will create a variable for you if it is not in scope. Using `let` will enforce that the variable is only used in the scope in which its declared. `let` avoids variable shadowing and other nastyness. Remember that variable shadowing is where you have two variables with the same name that exist within two scopes. Scope lookup stops once it finds a match, so the variable in the innermost scope will shadow the other. 
+
+### Things that affect lexical scoping
+Note that you generally don't want to use these, as they affect what we would expect for lexical scoping, and create performance degradations because the javascript engine cannot put the performance optimizations it normally would.
+
+**eval** - Accepts a string as an argument, and treats the string as if it has been evaluated at that point in the code, so it takes the scope of where eval() is and not the line in which the string is declared. Note that in strict mode, eval operates in its own lexical scope, and doesn't affect the scope of the enclosing function.
+
+**with** - typically used as a shorthand to avoid writing out an object name repeatedly. This creates issues if creating a new property within an object. with treats the object it is passed as a wholly separate lexical scope, therefore a variable will be created at global scope if it does not exist.
 
 ```
 {
@@ -136,6 +143,9 @@ If you're receiving event propagation that you would not like, you can leverage 
 
 ### Event Bubbling
 Bubbling is one of the phases of event propagation, and the one that allows event delegation to happen.  When you trigger an event on an element, the event 'bubbles' up to all parent elements of the element. In other words, when you click an element, you are clicking also on all the parents of that element up to the document body. Some events are exceptions though, such as `focus`, `blur`, and events that fire on the entire document itself, such as `load`, `error`, etc.
+
+### Compilation
+Javascript is unique in that compilation happens just in time, immediately before code is executed.  In compilation, a variable assignment is divided into two acctions, a scope declaration and subsequent LHS reference. *LHS (variable assignment) will look for an existing declaration all the way up to the global scope, and will create one if it does not yet exist. RHS (variable access) will throw a ReferenceError in the case the variable is never found. Note that you can disable the automatic declaration of variables through use of 'strict mode', implemented in ES5.
 
 References:
 - https://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/  
