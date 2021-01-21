@@ -14,7 +14,7 @@
 
 ### Lexical scope and closures
 
-Follows the same nested scoping rules as Java, starting from the closest scope in which the reference is made, and looking to the next closest scope thereafter.
+Follows the same nested scoping rules as Java, starting from the closest scope in which the reference is made, and looking to the next closest scope thereafter. Lexical scope is defined at lexing time, based on where the variables and scope are authored.
 
 ```
 var a = 1; 
@@ -25,10 +25,38 @@ function foo() {
 console.log(a); // 1
 foo();          // 10
 ```
-This demonstrates variable shadowing. In the case of `let` vs `var` in JavaScript, `let` binds a variables scope to whichever block it is contained within. This is because unless you are running in ES6 `strict mode`, the global scope will create a variable for you if it is not in scope. Using `let` will enforce that the variable is only used in the scope in which its declared. `let` avoids variable shadowing and other nastyness. Remember that variable shadowing is where you have two variables with the same name that exist within two scopes. Scope lookup stops once it finds a match, so the variable in the innermost scope will shadow the other. 
+This demonstrates variable shadowing. In the case of `let` vs `var` in JavaScript, `let` binds a variables scope to whichever block it is contained within. This is because unless you are running in ES6 `strict mode`, the global scope will create a variable for you if it is not in scope. Using `let` will enforce that the variable is only used in the scope in which its declared. `let` avoids variable shadowing and other nastyness. Usage of `let` is especially critical in loops, binding i to the for loop body and rebinding on each itration. Note that `const` is just another versin of `let` that is constant. Remember that variable shadowing is where you have two variables with the same name that exist within two scopes. Scope lookup stops once it finds a match, so the variable in the innermost scope will shadow the other. Note that global variables are also properteis of the global object (window). Variable collusion is especially likely in the global scope. 
+
+```
+function foo() {
+    function bar(a) {
+        i = 3;
+        console.log(a);
+    }
+    for (var i=0; i < 10; i++) {
+        bar(i*2); // this is an infinite loop, since within the context of bar, i is always 3.
+    }
+}
+```
+
+Each function creates a bubble for itself. You can "hide" variables and functions by enclosing them within the scope of a function, as above. 
+
+```
+if (true) {
+    var i = 5;
+    let j = 6; 
+}
+console.log(i); // prints 5
+console.log(j); // ReferenceError, let scopes variables to the block
+
+console.log(bar); // ReferenceError, declarations using let don't hoist to entire parent scope
+let bar = 2;
+```
 
 ### Things that affect lexical scoping
 Note that you generally don't want to use these, as they affect what we would expect for lexical scoping, and create performance degradations because the javascript engine cannot put the performance optimizations it normally would.
+
+**Block Scoping** - Involves declaring variables as close as possibel to the scope where they are referenced, to avoid polluting scope. Note that javascript does not enforce block scoping, though catch blocks in try/catch pairs are in fact blockm scoped.
 
 **eval** - Accepts a string as an argument, and treats the string as if it has been evaluated at that point in the code, so it takes the scope of where eval() is and not the line in which the string is declared. Note that in strict mode, eval operates in its own lexical scope, and doesn't affect the scope of the enclosing function.
 
@@ -53,15 +81,63 @@ function foo() {
 }
 ```
 
-Functions are hoisted first, then variables. Hoisting essentially means that the scope of the declaration is independent of the order in which these items were declared. They are available throughout the scope in which they were declared. Note, however, if you declare a function twice, and the function has the same signature, JavaScript will use the second declared function in order from top to bottom. Note that things declared with 'let' will also not be hoisted.
+Functions are hoisted first, then variables. Hoisting essentially means that the scope of the declaration is independent of the order in which these items were declared. They are available throughout the scope in which they were declared. Note, however, if you declare a function twice, and the function has the same signature, JavaScript will use the second declared function in order from top to bottom. Note that things declared with 'let' will also not be hoisted. The reason that hoisting works is because the variable declaration is picked up at compile time whereas the assignment is picked up at runtime. Because the declaration is picked up at compile time, they may then be referenced above their assignment. Note that hoisting happen per scope, not to the global scope. Function and variable declarations are hoisted, whereas function expressions are not. Functions are hoisted first, and will shadow variable declarations that have the same name. 
 
 ### Closures
 Closure is when a function is able to remember and access its lexical scope even when the function is executing outside its lexical scope. This is why you're able to pass references to functions to child components and have them execute outside their lexical scope, but still access the scope defined within the function.
 
+An example of closure:
+```
+function foo() {
+    var a = 2;
+    function bar() {
+        console.log(a);
+    }
+    return bar;
+    }
+    var baz = foo();
+    baz(); .. prints 2, bar() is executed outside its declared lexical scope, baz() excecutes in foo()'s closure
+}
+```
+
+**Callbacks** - Callback functions are likely to exercise closure in referencing their scope.
+
+```
+for (var i = 1; i <=5; i++) {
+    (function () {
+        var j = i;
+        setTimeout(function timer () {
+            console.log(j);
+        }, j*1000
+     })();
+}
+```
+In this example, the callback creates a block scope on each iteration for the callback to use. 
+
+**Modules** - Modules also leverage closure. Modules can be instantiated to encapsulate use of variables to the scope in which they belong. The inner functions then exercise closure. You can also put the scope within an IIFE to encapsulate it. 
+
+**Dynamic Scope** - Scope that is determined by call order rather than author time. 
+
 ### What is _this_ ??????
 Just use the W3 Schools reference.  
 Is **this** in a method of an object?  
-The scope referenced is the global object, or the "owner" of the method. Note that if you have a method inside of a method, and the method uses **this**, then it loses its scope and is bound to the global object.' Function context is also defined only when _calling_ your function, not when defining it (see .bind()).
+The scope referenced is the global object, or the "owner" of the method. Note that if you have a method inside of a method, and the method uses **this**, then it loses its scope and is bound to the global object.' Function context is also defined only when _calling_ your function, not when defining it (see .bind()). Unlike lexical scope, which is defined at compile time, _this_ is defined at run time. 
+
+**Call-site** - Location in the code where function is called.
+
+**Default Binding** - When not in strict mode, default binding is to global scope.
+
+**Implicit Binding** -
+```
+function foo() {
+    console.log(this.a);
+}
+var obj = {
+    a: 2,
+    foo: foo
+}
+```
+This example demonstrates implicit binding, since obj.foo() means _this_ is implicitly bound to obj. Note that if you chain these, the last referenced object will be _this_, such as in obj1.obj2.foo(), obj2 is _this_.
 
 Is **this** global scope?
 Then it references the global object's scope.
