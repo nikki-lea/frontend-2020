@@ -139,9 +139,9 @@ var obj = {
 ```
 This example demonstrates implicit binding, since obj.foo() means _this_ is implicitly bound to obj. Note that if you chain these, the last referenced object will be _this_, such as in obj1.obj2.foo(), obj2 is _this_. Be careful with implicit binding and callbacks, where the callback will not be implicitly bound to the object it is within.
 
-**Explicit Binding** - Explicitly declares the object that _this_ will reference through .call or .apply. Hard binding explicitly passes an object, but also wraps it in a function that manually calls foo.call(obj) on each call. This is what .bind() does in ES5. ES6 has a name property on bind that allows the function to show up in stack traces as well. 
+**Explicit Binding** - Explicitly declares the object that _this_ will reference through .call or .apply. Hard binding explicitly passes an object, but also wraps it in a function that manually calls foo.call(obj) on each call. This is what .bind() does in ES5. ES6 has a name property on bind that allows the function to show up in stack traces as well. implicit binding can override implicit binding which can override default binding
 
-**new** - In JavaScript the new operator is _just a function_ that happens to have the word 'new' in front of it. They are not attached to classes, nor do they instantiate a class. Similarly, properties of an object created via _new_ has a _this_ of the obj itself.
+**new** - In JavaScript the new operator is _just a function_ that happens to have the word 'new' in front of it. They are not attached to classes, nor do they instantiate a class. Similarly, properties of an object created via _new_ has a _this_ of the obj itself. new can in fact override hard bindig.
 
 Is **this** global scope?
 Then it references the global object's scope.
