@@ -11,6 +11,7 @@
 [Event Delegation](#event-delegation)    
 [Event Propagation](#event-propagation-and-phases)  
 [Event Bubbling](#event-bubbling)
+[By Reference and By Value](#by-reference-and-by-value)  
 
 ### Lexical scope and closures
 
@@ -226,6 +227,11 @@ Bubbling is one of the phases of event propagation, and the one that allows even
 
 ### Compilation
 Javascript is unique in that compilation happens just in time, immediately before code is executed.  In compilation, a variable assignment is divided into two acctions, a scope declaration and subsequent LHS reference. *LHS (variable assignment) will look for an existing declaration all the way up to the global scope, and will create one if it does not yet exist. RHS (variable access) will throw a ReferenceError in the case the variable is never found. Note that you can disable the automatic declaration of variables through use of 'strict mode', implemented in ES5.
+
+### By Reference, By Value
+- All primitives are passed by value
+- Objects and arrays are all pass by reference
+- 
 
 References:
 - https://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/  
