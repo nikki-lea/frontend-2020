@@ -230,7 +230,7 @@ Javascript is unique in that compilation happens just in time, immediately befor
 
 ### By Reference, By Value
 - All primitives are passed by value
-- Objects and arrays are all pass by reference
+- Objects and arrays are all pass by reference. As a result, if you pass an array to another function then modify it in that function, it will be modified in the scope of the calling function as well.
 - 
 
 References:
