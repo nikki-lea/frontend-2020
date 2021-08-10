@@ -1,6 +1,7 @@
 # On React
 [Data Fetching with Hooks](#data-fetching-with-hooks) 
-[Reducers and useReducer](#reducers-and-usereducer) 
+[Reducers and useReducer](#reducers-and-usereducer)
+[refs and useRef](#refs-and-useref)
 
 ### Data Fetching with Hooks
 Must be worked around this way using an async function will return an AsyncFunction object, whereas useEffect must return either nothing or a cleanup function. 
@@ -34,3 +35,20 @@ const todoReducer = (state, action) => {
 ```
 
 In this case the state can be referenced off the state that is returned in the destructuring, and the dispatch used to dispatch an action `dispatch({ type: 'A', payload: {update: 'foo}});`
+
+### Refs and useRef
+useRef hook returns a mutable object that stays intact throughout the lifetime of a react component. The current property can hold any modifiable value. The current property gets initialized with whatever value is passed to the constructor, for example:
+```
+  const hasClickedButton = React.useRef(false);
+ 
+  const [count, setCount] = React.useState(0);
+ 
+  function onClick() {
+    const newCount = count + 1;
+ 
+    setCount(newCount);
+ 
+    hasClickedButton.current = true;
+  }
+```
+The important thing about refs is that it doesn't trigger a rerender. The ref is a sort of instance variable that will persist across rerenders. 
