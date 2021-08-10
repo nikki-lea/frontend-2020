@@ -12,6 +12,7 @@
 [Event Propagation](#event-propagation-and-phases)  
 [Event Bubbling](#event-bubbling)
 [By Reference and By Value](#by-reference-and-by-value)  
+[Imperative vs Declarative](#imperative-vs-declarative)
 
 ### Lexical scope and closures
 
@@ -231,7 +232,9 @@ Javascript is unique in that compilation happens just in time, immediately befor
 ### By Reference, By Value
 - All primitives are passed by value
 - Objects and arrays are all pass by reference. As a result, if you pass an array to another function then modify it in that function, it will be modified in the scope of the calling function as well.
-- 
+
+### Imperative vs Declarative
+Imperative code is where you explicitly spell out each step of how you want something done, whereas with declarative code you merely say what it is that you want done. Typically imperative is the same as the difference between something like a for loop, and something like array.every. 
 
 References:
 - https://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/  
@@ -243,4 +246,5 @@ References:
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 - https://medium.com/javascript-scene/functional-mixins-composing-software-ffb66d5e731c
 - https://medium.com/@bretdoucette/part-4-what-is-event-delegation-in-javascript-f5c8c0de2983
+- https://medium.com/weekly-webtips/imperative-vs-declarative-programming-in-javascript-25511b90cdb7
 
