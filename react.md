@@ -1,7 +1,11 @@
 # On React
-[Data Fetching with Hooks](#data-fetching-with-hooks) 
+[Data Fetching with Hooks](#data-fetching-with-hooks)
+
 [Reducers and useReducer](#reducers-and-usereducer)
+
 [refs and useRef](#refs-and-useref)
+
+
 
 ### Data Fetching with Hooks
 Must be worked around this way using an async function will return an AsyncFunction object, whereas useEffect must return either nothing or a cleanup function. 
@@ -51,4 +55,34 @@ useRef hook returns a mutable object that stays intact throughout the lifetime o
     hasClickedButton.current = true;
   }
 ```
-The important thing about refs is that it doesn't trigger a rerender. The ref is a sort of instance variable that will persist across rerenders. 
+The important thing about refs is that it doesn't trigger a rerender. The ref is a sort of instance variable that will persist across rerenders. You typically see react refs used in conjunction with the DOM api like so
+```
+function ComponentWithDomApi({ label, value, isFocus }) {
+  const ref = React.useRef(); // (1)
+ 
+  React.useEffect(() => {
+    if (isFocus) {
+      ref.current.focus(); // (3)
+    }
+  }, [isFocus]);
+ 
+  return (
+    <label>
+      {/* (2) */}
+      {label}: <input type="text" value={value} ref={ref} />
+    </label>
+  );
+}
+```
+
+A callback ref is a function which can be used for the HTML element's ref attribute in JSX, which can be used in conjunction with the useCallback hook like so:
+```
+const ref = React.useCallback((node) => {
+    if (!node) return;
+ 
+    const { width } = node.getBoundingClientRect();
+ 
+    document.title = `Width:${width}`;
+  }, []);
+```
+
