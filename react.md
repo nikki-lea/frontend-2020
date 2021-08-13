@@ -5,6 +5,7 @@
 
 [refs and useRef](#refs-and-useref)
 
+[useMemo and React Memo API)(#usememo-and-react-memo-api)
 
 
 ### Data Fetching with Hooks
@@ -85,4 +86,5 @@ const ref = React.useCallback((node) => {
     document.title = `Width:${width}`;
   }, []);
 ```
-
+### useMemo and React Memo API
+The useMemo hook memoizes a functions return value, running the function only when a dependency has changed. Say if you have a very long list and you are mapping each item on the list, but you only need run the mapping on a particular state change such as after the user has submitted, this is a good way to memoize the function so it just saves the value. Note that useMemo itself has computational cost in that it has to compare the dependencies in the array on each render to see if they've changed, so typically the performance gain from memoization isn't substantially greater than this. 
