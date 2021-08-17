@@ -5,7 +5,9 @@
 
 [refs and useRef](#refs-and-useref)
 
-[useMemo and React Memo API)(#usememo-and-react-memo-api)
+[useMemo and React Memo API](#usememo-and-react-memo-api)
+
+[useCallback](#useCallback)
 
 
 ### Data Fetching with Hooks
@@ -88,3 +90,8 @@ const ref = React.useCallback((node) => {
 ```
 ### useMemo and React Memo API
 The useMemo hook memoizes a functions return value, running the function only when a dependency has changed. Say if you have a very long list and you are mapping each item on the list, but you only need run the mapping on a particular state change such as after the user has submitted, this is a good way to memoize the function so it just saves the value. Note that useMemo itself has computational cost in that it has to compare the dependencies in the array on each render to see if they've changed, so typically the performance gain from memoization isn't substantially greater than this. 
+
+The React Memo API is used to wrap React components to prevent rerenderings. If you are, for example, rendering a list of text fields, and the current text field and the list are both maintained in state, you will in fact render the app, the list, and each list item on each time a text field is changed because the parent will update its state and then all the children will rerender. You can wrap the function that renders each of the list items with React.memo. If the list items are unchanged, it will use the memoized props rather than rerendering each time. You can even memoize the individual items in the list so that they do not rerender unless they are changed too.
+
+### useCallback
+useCallback is used to memoize functions. So given the list example above, say now the list item accepts a callback, onRemove(). onRemove is defined in the App component, then passed to each of the list items so that they can be removed when the user clicks a remove button. This actually entirely negates anything done by React.memo. So the problem is if that the app component rerenders, the handleRemove callback definition gets re-defined, so the memoization things it is in fact a new callback handler. We can handle this through use of useCallback, which will memoize the function itself. 
