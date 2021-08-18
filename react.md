@@ -100,3 +100,7 @@ useCallback is used to memoize functions. So given the list example above, say n
 
 ### Component Rerender Behavior
 useState: Rerenders on on each setState update. What if you have a setState handler thats passed to a child component, to update the parent component state? In this case, if the child calls setState, then the parent would rerender, and rerender all of its children, regardless of if the child is even using the state that had been changed. useMemo helps mitigate this.
+
+on useEffect, if useEFfect returns a function, this is a 'cleanup handler'. On a rerender, the cleanup handler will first run with the previous state, then the outer scoped function defined in useEffect will run. Also, the cleanup handler will run after the component unmounts. The useEffect will run on every state update if no dependency array is specified, and the handler will run after the current state is set to the DOM. Be careful with causing infinite rerenders in useEffect's dependency array. If something such as a function in your dependency array is re-defined on every rerender, and useEffect updates state each time, you will have an infinite rerender loop.
+
+https://medium.com/@guptagaruda/react-hooks-understanding-component-re-renders-9708ddee9928#08f6
