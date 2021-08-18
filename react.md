@@ -9,6 +9,8 @@
 
 [useCallback](#useCallback)
 
+[Component Rerender Behavior](#component-rerender-behavior)
+
 
 ### Data Fetching with Hooks
 Must be worked around this way using an async function will return an AsyncFunction object, whereas useEffect must return either nothing or a cleanup function. 
@@ -95,3 +97,6 @@ The React Memo API is used to wrap React components to prevent rerenderings. If 
 
 ### useCallback
 useCallback is used to memoize functions. So given the list example above, say now the list item accepts a callback, onRemove(). onRemove is defined in the App component, then passed to each of the list items so that they can be removed when the user clicks a remove button. This actually entirely negates anything done by React.memo. So the problem is if that the app component rerenders, the handleRemove callback definition gets re-defined, so the memoization things it is in fact a new callback handler. We can handle this through use of useCallback, which will memoize the function itself. 
+
+### Component Rerender Behavior
+useState: Rerenders on on each setState update. What if you have a setState handler thats passed to a child component, to update the parent component state? In this case, if the child calls setState, then the parent would rerender, and rerender all of its children, regardless of if the child is even using the state that had been changed. useMemo helps mitigate this.
