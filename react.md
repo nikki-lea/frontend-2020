@@ -103,6 +103,9 @@ useState: Rerenders on on each setState update. What if you have a setState hand
 
 on useEffect, if useEffect returns a function, this is a 'cleanup handler'. On a rerender, the cleanup handler will first run with the previous state, then the outer scoped function defined in useEffect will run. Also, the cleanup handler will run after the component unmounts. The useEffect will run on every state update if no dependency array is specified, and the handler will run after the current state is set to the DOM. Be careful with causing infinite rerenders in useEffect's dependency array. If something such as a function in your dependency array is re-defined on every rerender, and useEffect updates state each time, you will have an infinite rerender loop.
 
-useLayoutEffect - This is identical to useEffect but runs synchronously after all DOM mutations. Note that if you have SSR, neither useEffect or useLayout will run until after the JavaScript is downloaded client side. If something must render client side you can render it conditionally using a useEffect with an empty dependency list. 
+useLayoutEffect - This is identical to useEffect but runs synchronously after all DOM mutations. Note that if you have SSR, neither useEffect or useLayout will run until after the JavaScript is downloaded client side. If something must render client side you can render it conditionally using a useEffect with an empty dependency list. This is handy if you need to manipulate the DOM after state is set but before first paint, such as adding a class conditionally.
+
+useContext - All consumers that are descendents of a provider will rerender whenever the provider's value prop changes. If you have a parent component that uses state from useContext, it will rerender all of its descendents, regardless of if they consume state from useContext. You can in theory memoize the components to help insulate them from this but use react dev tools profiler to measure first.
 
 https://medium.com/@guptagaruda/react-hooks-understanding-component-re-renders-9708ddee9928#08f6
+https://kentcdodds.com/blog/usememo-and-usecallback
