@@ -13,6 +13,7 @@
 [Event Bubbling](#event-bubbling)
 [By Reference and By Value](#by-reference-and-by-value)  
 [Imperative vs Declarative](#imperative-vs-declarative)
+
 [Array Methods](#array-methods)
 
 ### Lexical scope and closures
