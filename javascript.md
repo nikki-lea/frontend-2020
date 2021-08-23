@@ -247,11 +247,11 @@ for (const [index, element] of a.entries())
 ```
 **every** - Returns a boolean, tests whether or not every element satisfies the specified predicate. 
 **filter** - Accepts a callback function `filter((element, index, array) => { ... } )`, returns a new array of elements that satisfy the predicate. Does not mutate the array its called in.  
-**find** - Returns first element that satifies a given predicate, undefined otherwise. 
-**findIndex** - Returns the first index that satifies a given predicate, -1 otherwise. 
-**flat** - Returns a new array with all subarrays flattened to a specified depth. 
-**flatMap** - Applies a callback to each element then flattens result by one level. 
-**forEach** - Iterates over the array. 
+**find** - Returns first element that satifies a given predicate, undefined otherwise.  
+**findIndex** - Returns the first index that satifies a given predicate, -1 otherwise.  
+**flat** - Returns a new array with all subarrays flattened to a specified depth.  
+**flatMap** - Applies a callback to each element then flattens result by one level.  
+**forEach** - Iterates over the array.  
 
 
 
