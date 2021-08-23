@@ -13,6 +13,7 @@
 [Event Bubbling](#event-bubbling)
 [By Reference and By Value](#by-reference-and-by-value)  
 [Imperative vs Declarative](#imperative-vs-declarative)
+[Array Methods](#array-methods)
 
 ### Lexical scope and closures
 
@@ -235,6 +236,24 @@ Javascript is unique in that compilation happens just in time, immediately befor
 
 ### Imperative vs Declarative
 Imperative code is where you explicitly spell out each step of how you want something done, whereas with declarative code you merely say what it is that you want done. Typically imperative is the same as the difference between something like a for loop, and something like array.every. 
+
+### Array Methods
+**entries** - You can get [index, value] pairs with entries, returns an iterator
+```
+const a = ['a', 'b', 'c'];
+
+for (const [index, element] of a.entries())
+  console.log(index, element);
+```
+**every** - Returns a boolean, tests whether or not every element satisfies the specified predicate
+**filter** - Accepts a callback function `filter((element, index, array) => { ... } )`, returns a new array of elements that satisfy the predicate. Does not mutate the array its called in.
+**find** - Returns first element that satifies a given predicate, undefined otherwise
+**findIndex** - Returns the first index that satifies a given predicate, -1 otherwise
+**flat** - Returns a new array with all subarrays flattened to a specified depth
+**flatMap** - Applies a callback to each element then flattens result by one level
+**forEach** - Iterates over the array
+
+
 
 References:
 - https://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/  
