@@ -252,8 +252,22 @@ for (const [index, element] of a.entries())
 **flat** - Returns a new array with all subarrays flattened to a specified depth.  
 **flatMap** - Applies a callback to each element then flattens result by one level.  
 **forEach** - Iterates over the array.  
-
-
+**from** - Returns a shallow copy.  
+**includes**
+**indexOf** - Returns first index if element present, -1 otherwise.  
+**join** - Returns a string of the elements concatenated, comma separated.  
+**keys** - Returns an iterator of the indices.  
+**lastIndexOf** - Returns last index if element present, -1 otherwise.  
+**pop** - Removes last element of array and returns it.  
+**push** - Adds one or more elements to the end of the array and returns the new length
+**reduce** - Applies a callback to each element, accepting the result of the calculation on the preceding elemnt, `reduce((previousValue, currentValue, currentIndex, array) => { ... }, initialValue)`.  
+**reduceRight** - Works right to left, starts with end of array.  
+**shift** - Removes the first element and returns it.  
+**slice** - Returns a portion of the array specified by the range `slice(start, end)`. Negative counts from the end of the array. Slice extracts up to but not including the `end` value.
+**some** - Returns whether or not at least one value satifies predicate.
+**sort** - A compareFunction is optional but if its not specified it will convert all the values to strings then sort by unicode point value. The array itself is mutated, and returned by the function. No copy is made. 
+**splice** - Removes or replaces existing elements in place. `splice(start, deleteCount)` removes elements beginning with index `start`. You can also insert an element after index `start` with splice(start, deleteCount, item1), where `deleteCount` can be set to 0.
+**unshift** - Adds one or more elements to thee beginning of the array and returns the new length. 
 
 References:
 - https://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/  
