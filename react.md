@@ -11,6 +11,8 @@
 
 [Component Rerender Behavior](#component-rerender-behavior)
 
+[React Higher Order Components](#react-higher-order-components)
+
 
 ### Data Fetching with Hooks
 Must be worked around this way using an async function will return an AsyncFunction object, whereas useEffect must return either nothing or a cleanup function. 
@@ -106,6 +108,68 @@ on useEffect, if useEffect returns a function, this is a 'cleanup handler'. On a
 useLayoutEffect - This is identical to useEffect but runs synchronously after all DOM mutations. Note that if you have SSR, neither useEffect or useLayout will run until after the JavaScript is downloaded client side. If something must render client side you can render it conditionally using a useEffect with an empty dependency list. This is handy if you need to manipulate the DOM after state is set but before first paint, such as adding a class conditionally.
 
 useContext - All consumers that are descendents of a provider will rerender whenever the provider's value prop changes. If you have a parent component that uses state from useContext, it will rerender all of its descendents, regardless of if they consume state from useContext. You can in theory memoize the components to help insulate them from this but use react dev tools profiler to measure first.
+
+### Conditional Rendering in React
+- Using if statements, you can return null and it will render nothing
+- If/else statements
+- Ternary operators, useful since this can be inlined
+- Using &&, renders either the element or nothing, `{isLoading && <p>Loading</p}`
+Switch case, you can technically inline it if its an IIFE, conditional renderings with multiple conditions
+```
+      {(() => {
+        switch (status) {
+          case 'info':
+            return <Info text={text} />;
+          case 'warning':
+            return <Warning text={text} />;
+          case 'error':
+            return <Error text={text} />;
+          default:
+            return null;
+        }
+      })()}
+```
+Enums
+```
+jsx part
+      {
+        {
+          info: <Info text={text} />,
+          warning: <Warning text={text} />,
+          error: <Error text={text} />,
+        }[status]
+      }
+```
+Higher order components
+This is an example:
+```
+// Higher-Order Component
+function withLoadingIndicator(Component) {
+  return function EnhancedComponent({ isLoading, ...props }) {
+    if (!isLoading) {
+      return <Component {...props} />;
+    }
+ 
+    return (
+      <div>
+        <p>Loading</p>
+      </div>
+    );
+  };
+}
+ 
+const ListWithLoadingIndicator = withLoadingIndicator(List);
+ 
+function App({ list, isLoading }) {
+  return (
+    <div>
+      <h1>Hello Conditional Rendering</h1>
+ 
+      <ListWithLoadingIndicator isLoading={isLoading} list={list} />
+    </div>
+  );
+}
+```
 
 https://medium.com/@guptagaruda/react-hooks-understanding-component-re-renders-9708ddee9928#08f6
 https://kentcdodds.com/blog/usememo-and-usecallback
