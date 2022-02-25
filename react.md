@@ -82,6 +82,8 @@ function ComponentWithDomApi({ label, value, isFocus }) {
 }
 ```
 
+You can, however, update content using `ref.current.textContent`.
+
 A callback ref is a function which can be used for the HTML element's ref attribute in JSX, which can be used in conjunction with the useCallback hook like so:
 ```
 const ref = React.useCallback((node) => {
