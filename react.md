@@ -84,21 +84,34 @@ function ComponentWithDomApi({ label, value, isFocus }) {
 
 You can, however, update content using `ref.current.textContent`, like so:
 ```
-export default function (props) {
-  // Initialized a hook to hold the reference to the title div.
-  const titleRef = useRef();
-  
-  useEffect(function () {
-    setTimeout(() => {
-      titleRef.current.textContent = "Updated Text"
-    }, 2000); // Update the content of the element after 2seconds 
-  }, []);
-  
-  return <div className="container">
-    {/** The reference to the element happens here **/ }
-    <div className="title" ref={titleRef}>Original title</div>
-  </div>
+import React, { useRef} from 'react';
+import "./styles.css";
+
+export default function App() {
+  const timeRef = useRef();
+  const intervalRef = useRef({timer: null});
+
+  const updateTime = () => {
+    const newTime = parseInt(timeRef.current.textContent) + 1;
+    timeRef.current.textContent = newTime;
+  }
+  const startTimer = () => {
+    intervalRef.current.timer = setInterval(updateTime, 1000)
+  };
+  const clearTimer = () => {
+    clearInterval(intervalRef.current.timer);
+    timeRef.current.textContent = "0";
+  };
+
+  return (
+    <div className="App">
+      <p ref={timeRef}>0</p>
+      <button onClick={startTimer}>Start Timer</button>
+      <button onClick={clearTimer}>Stop Timer</button>
+    </div>
+  );
 }
+
 ```
 
 A callback ref is a function which can be used for the HTML element's ref attribute in JSX, which can be used in conjunction with the useCallback hook like so:
