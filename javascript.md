@@ -237,6 +237,42 @@ Javascript is unique in that compilation happens just in time, immediately befor
 ### Imperative vs Declarative
 Imperative code is where you explicitly spell out each step of how you want something done, whereas with declarative code you merely say what it is that you want done. Typically imperative is the same as the difference between something like a for loop, and something like array.every. 
 
+### Debouncing and Throttling
+A debounced function will ignore all calls to it until the calls have stopped for a given amount of time. Debouncing forces a function to wait a specified amount of time before it gets run again.
+
+```
+let debounceTimer;
+ 
+const debounce = (callback, time) => {
+  window.clearTimeout(debounceTimer);
+  debounceTimer = window.setTimeout(callback, time);
+};
+}
+```
+
+Throttling
+Ensure the function is called at most once in a given a time frame. This will prevent the function from rerunning if it has run "recently". 
+```
+//initialize throttlePause variable outside throttle function
+let throttlePause;
+ 
+const throttle = (callback, time) => {
+  //don't run the function if throttlePause is true
+  if (throttlePause) return;
+ 
+  //set throttlePause to true after the if condition. This allows the function to be run once
+  throttlePause = true;
+   
+  //setTimeout runs the callback within the specified time
+  setTimeout(() => {
+    callback();
+     
+    //throttlePause is set to false once the function has been called, allowing the throttle function to loop
+    throttlePause = false;
+  }, time);
+};
+```
+
 ### Array Methods
 **entries** - You can get [index, value] pairs with entries, returns an iterator
 ```
