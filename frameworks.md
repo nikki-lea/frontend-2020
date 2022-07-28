@@ -1,6 +1,6 @@
 # On Frameworks
-[Pages](#pages)
-[Data Fetching)(#data-fetching)
+[Pages](#pages)  
+[Data Fetching](#data-fetching)  
 [NPM dependency resolution](#NPM-dependency-resolution)
 
 ### Pages
