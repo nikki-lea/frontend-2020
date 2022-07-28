@@ -39,6 +39,8 @@ function Home() {
         ...
 ```
 
+When using an image you can set className which will be set on the <img> tag. Alternatively you can pick the right layout mode in the image itself. Keep in mind `next/image`wraps in a span to prevent CLS.
+
 ### NPM dependency resolution
 
 If module A depends on Module B v1.0, then it will instill module B at the top level of node-modules, say you then install module C, which relies on v2.0 of module B, then it will nest under Module C's version dependencies, since 1.0 already exists at the top level. Say if you then update module A to use module B v2.0, then npm will remove module B v1.0 frlom teh top level and install module B v2.0 instead! The problem is that the other modules still have B v2.0 as nested dependencies, so you can get rid of the deduplication by running npm dedupe. Install order from a package.json is always alphabetical. 
