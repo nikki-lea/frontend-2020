@@ -45,4 +45,14 @@ When using an image you can set className which will be set on the <img> tag. Al
 
 If module A depends on Module B v1.0, then it will instill module B at the top level of node-modules, say you then install module C, which relies on v2.0 of module B, then it will nest under Module C's version dependencies, since 1.0 already exists at the top level. Say if you then update module A to use module B v2.0, then npm will remove module B v1.0 frlom teh top level and install module B v2.0 instead! The problem is that the other modules still have B v2.0 as nested dependencies, so you can get rid of the deduplication by running npm dedupe. Install order from a package.json is always alphabetical. 
 
+### Working with Localization
+You can get the current locale off the router like so:
+```
+import { useRouter } from 'next/router'
+const router = useRouter()
 
+const isEn = router.locale === 'en'
+}
+```
+
+You can switch locales as follows `{t('change-locale', { changeTo: router.locale === 'en' ? 'de' : 'en' })}`
