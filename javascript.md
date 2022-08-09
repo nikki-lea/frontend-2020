@@ -14,6 +14,7 @@
 [By Reference and By Value](#by-reference-and-by-value)  
 [Imperative vs Declarative](#imperative-vs-declarative)  
 [Array Methods](#array-methods)
+[Typescript](#typescript)
 
 ### Lexical scope and closures
 
@@ -304,6 +305,9 @@ for (const [index, element] of a.entries())
 **sort** - A compareFunction is optional but if its not specified it will convert all the values to strings then sort by unicode point value. The array itself is mutated, and returned by the function. No copy is made.  
 **splice** - Removes or replaces existing elements in place. `splice(start, deleteCount)` removes elements beginning with index `start`. You can also insert an element after index `start` with splice(start, deleteCount, item1), where `deleteCount` can be set to 0.  
 **unshift** - Adds one or more elements to thee beginning of the array and returns the new length.  
+
+### Typescript
+**Namespaces** - namespaces are internal modules that define types to be shared across segments of code that need it, but avoids collisions where not used and instead another namespace is used.
 
 References:
 - https://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/  
