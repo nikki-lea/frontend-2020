@@ -309,6 +309,18 @@ for (const [index, element] of a.entries())
 ### Typescript
 **Namespaces** - namespaces are internal modules that define types to be shared across segments of code that need it, but avoids collisions where not used and instead another namespace is used.
 
+### Vanilla Javascript in markup
+From another file:  
+```
+<body>
+	<div id="app"></div>
+
+	<script src="src/index.js">
+	</script>
+</body>
+```
+
+
 References:
 - https://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/  
 - https://spin.atomicobject.com/2014/10/20/javascript-scope-closures/  
