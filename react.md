@@ -11,7 +11,9 @@
 
 [Component Rerender Behavior](#component-rerender-behavior)
 
-[React Higher Order Components](#react-higher-order-components)
+[React Higher Order Components](#react-higher-order-components)  
+
+[Controlled components in React](#controlled-components-in-react)
 
 
 ### Data Fetching with Hooks
