@@ -15,6 +15,8 @@
 [Imperative vs Declarative](#imperative-vs-declarative)  
 [Array Methods](#array-methods)
 [Typescript](#typescript)
+[Vanilla Javascript in Markup](#vanilla-javascript-in-markup)
+[Vanilla Controlled Components](#vanilla-controlled-components)
 
 ### Lexical scope and closures
 
@@ -309,7 +311,7 @@ for (const [index, element] of a.entries())
 ### Typescript
 **Namespaces** - namespaces are internal modules that define types to be shared across segments of code that need it, but avoids collisions where not used and instead another namespace is used.
 
-### Vanilla Javascript in markup
+### Vanilla Javascript in Markup
 From another file:  
 ```
 <body>
