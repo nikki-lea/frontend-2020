@@ -339,10 +339,10 @@ Accessing input state from a form:
 Pull it off the DOM element as as property after using the selector.  
 
 Important DOM element methods:  
-- element.innerText (omits spacing, CSS hidden text, tags)
-- element.innerHTML
-- element.textContent (keeps spacing and CSS hidden text, omits tags)
-- element.value (gets the value of a field)
+- `element.innerText` (omits spacing, CSS hidden text, tags)
+- `element.innerHTML`
+- `element.textContent` (keeps spacing and CSS hidden text, omits tags)
+- `element.value` (gets the value of a field)
 
 References:
 - https://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/  
