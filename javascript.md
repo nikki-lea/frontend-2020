@@ -14,9 +14,9 @@
 [By Reference and By Value](#by-reference-and-by-value)  
 [Imperative vs Declarative](#imperative-vs-declarative)  
 [Array Methods](#array-methods)
-[Typescript](#typescript)
-[Vanilla Javascript in Markup](#vanilla-javascript-in-markup)
-[Vanilla Controlled Components](#vanilla-controlled-components)
+[Typescript](#typescript)  
+[Vanilla Javascript in Markup](#vanilla-javascript-in-markup)  
+[Vanilla Controlled Components](#vanilla-controlled-components)  
 
 ### Lexical scope and closures
 
