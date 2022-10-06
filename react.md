@@ -203,5 +203,25 @@ function App({ list, isLoading }) {
 }
 ```
 
+### Controlled components in React
+React form elements typically maintain their own state in addition to the react mutable state. We use react state as a single source of truth for values. Be mindful that the form submit handler goes on the form wrapper itself, and that it will cause a hard page reload.  
+An example of a form:  
+```      <form onSubmit={this.handleSubmit}>
+        <label>
+          Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+```
+React inputs expanded:  
+Type:  
+- number/text  
+- submit (triggers the onSubmit handler on form)  
+- file (interact with the javascript file system api, that can be accessed with `const selectedFile = document.getElementById('input').files[0];`)
+- value (if not assigned to state, and assigned to a constant, it will pin the value)
+Name: An identifier used for react, propagates the value with the event as e.target.name
+
+
 https://medium.com/@guptagaruda/react-hooks-understanding-component-re-renders-9708ddee9928#08f6
 https://kentcdodds.com/blog/usememo-and-usecallback
