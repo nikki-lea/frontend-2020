@@ -346,6 +346,11 @@ Important DOM element methods:
 - `element.textContent` (keeps spacing and CSS hidden text, omits tags)
 - `element.value` (gets the value of a field)
 
+### On Fetch
+In some sandboxes you may have to await the json() method off the response from fetch since the code will continue executing, or you can just use then to format the result after its received.  
+The fetch call returns a response object https://developer.mozilla.org/en-US/docs/Web/API/Response. The key attributes here are response.ok, and the .json() method that gets the applicable json.
+
+
 References:
 - https://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/  
 - https://spin.atomicobject.com/2014/10/20/javascript-scope-closures/  
