@@ -346,9 +346,31 @@ Important DOM element methods:
 - `element.textContent` (keeps spacing and CSS hidden text, omits tags)
 - `element.value` (gets the value of a field)
 
-### On Fetch
+### Fetch
 In some sandboxes you may have to await the json() method off the response from fetch since the code will continue executing, or you can just use then to format the result after its received.  
-The fetch call returns a response object https://developer.mozilla.org/en-US/docs/Web/API/Response. The key attributes here are response.ok, and the .json() method that gets the applicable json.
+The fetch call returns a response object https://developer.mozilla.org/en-US/docs/Web/API/Response. The key attributes here are response.ok, and the .json() method that gets the applicable json. HTTP headers: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers  
+
+### Promises and async await
+Javascript is synchronous and single threaded, but will pause the execution of a function at await for the promise to resolve. Async functions return a promise. You can use multiple awaits within the same function like so:
+```
+async function loadData() {
+    // `rp` is a request-promise function.
+    var promise1 = rp('https://api.example.com/endpoint1');
+    var promise2 = rp('https://api.example.com/endpoint2');
+   
+    // Currently, both requests are fired, concurrently and
+    // now we'll have to wait for them to finish
+    var response1 = await promise1;
+    var response2 = await promise2;
+    return response1 + ' ' + response2;
+}
+```
+
+Async functions allow you to handle errors vs try catch whereas with promises you have to check the result with .then(). Async await is easier to debug because with .then() statements the debugger will skip these.
+
+Promises and for loops:
+- forEach, and for x of y are not promise aware
+- map, and for loops will return an array of promises. Be sure to wrap these in promise.all.
 
 
 References:
