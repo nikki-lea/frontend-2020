@@ -17,6 +17,7 @@
 [Typescript](#typescript)  
 [Vanilla Javascript in Markup](#vanilla-javascript-in-markup)  
 [Vanilla Controlled Components](#vanilla-controlled-components)  
+[Null or Undefined](#null-or-undefined)
 
 ### Lexical scope and closures
 
@@ -371,6 +372,9 @@ Async functions allow you to handle errors vs try catch whereas with promises yo
 Promises and for loops:
 - forEach, and for x of y are not promise aware
 - map, and for loops will return an array of promises. Be sure to wrap these in promise.all.
+
+### Null or Undefined
+Null is assigned and explicitly means nothing. Undefined mean that the variable is declared but does not have a value. null !== undefined but null == undefined. Both are falsey.
 
 
 References:
