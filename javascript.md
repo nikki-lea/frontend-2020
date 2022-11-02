@@ -18,6 +18,7 @@
 [Vanilla Javascript in Markup](#vanilla-javascript-in-markup)  
 [Vanilla Controlled Components](#vanilla-controlled-components)  
 [Null or Undefined](#null-or-undefined)
+[Double and Triple Equals)(#double-and-triple-equals)
 
 ### Lexical scope and closures
 
@@ -376,6 +377,11 @@ Promises and for loops:
 ### Null or Undefined
 Null is assigned and explicitly means nothing. Undefined mean that the variable is declared but does not have a value. null !== undefined but null == undefined. Both are falsey.
 
+### Double and Triple Equals
+=== is strict equality, will compare exact values, whereas == is loose equality and will declare two falsey items as equal even if they are different, such as with 0 and "". Generally you can use === ford deep object equality whereas you use == for references.
+
+### Same Origin Policy
+foo.com can only make requests to admin.foo.com, unless the endpoint at admin.foo.com as added the domain to their allow list.
 
 References:
 - https://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/  
