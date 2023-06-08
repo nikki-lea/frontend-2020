@@ -378,8 +378,13 @@ Promises and for loops:
 - forEach, and for x of y are not promise aware
 - map, and for loops will return an array of promises. Be sure to wrap these in promise.all.
 
-![image](https://github.com/nikki-lea/frontend-2020/assets/61667766/632a6008-6bdb-4f87-9387-64d05507ee01)
+Call Execution Order.   
+Async/await pauses execution at the await statement and immediately returns a promise for the callee to continue execution.
+Promises do not pause execution of the function, instead continuing, using any references to the item as a promise.
 
+![image](https://github.com/nikki-lea/frontend-2020/assets/61667766/632a6008-6bdb-4f87-9387-64d05507ee01) 
+
+The only time you should mix async await with Promises is with the use of Promise.all(). Don't mix async/await with then()/catch() syntax.
 
 ### Null or Undefined
 Null is assigned and explicitly means nothing. Undefined mean that the variable is declared but does not have a value. null !== undefined but null == undefined. Both are falsey.
