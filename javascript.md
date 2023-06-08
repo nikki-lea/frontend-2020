@@ -17,13 +17,13 @@
 [Typescript](#typescript)  
 [Vanilla Javascript in Markup](#vanilla-javascript-in-markup)  
 [Vanilla Controlled Components](#vanilla-controlled-components)  
-[Null or Undefined](#null-or-undefined)
-[Double and Triple Equals)(#double-and-triple-equals)
-[Fetch](#fetch)
-[Promises and Async Await](#promises-and-async-await)
-[Null or undefined](#null-or-undefined)
-[Double and Triple Equals](#double-or-triple-equals)
-[Same Origin Policy](#same-origin-policy)
+[Null or Undefined](#null-or-undefined) 
+[Double and Triple Equals)(#double-and-triple-equals) 
+[Fetch](#fetch)  
+[Promises and Async Await](#promises-and-async-await) 
+[Null or undefined](#null-or-undefined)  
+[Double and Triple Equals](#double-or-triple-equals) 
+[Same Origin Policy](#same-origin-policy) 
 
 ### Lexical scope and closures
 
