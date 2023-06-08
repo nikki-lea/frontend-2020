@@ -19,6 +19,11 @@
 [Vanilla Controlled Components](#vanilla-controlled-components)  
 [Null or Undefined](#null-or-undefined)
 [Double and Triple Equals)(#double-and-triple-equals)
+[Fetch](#fetch)
+[Promises and Async Await](#promises-and-async-await)
+[Null or undefined](#null-or-undefined)
+[Double and Triple Equals](#double-or-triple-equals)
+[Same Origin Policy](#same-origin-policy)
 
 ### Lexical scope and closures
 
@@ -373,6 +378,9 @@ Async functions allow you to handle errors vs try catch whereas with promises yo
 Promises and for loops:
 - forEach, and for x of y are not promise aware
 - map, and for loops will return an array of promises. Be sure to wrap these in promise.all.
+
+![image](https://github.com/nikki-lea/frontend-2020/assets/61667766/632a6008-6bdb-4f87-9387-64d05507ee01)
+
 
 ### Null or Undefined
 Null is assigned and explicitly means nothing. Undefined mean that the variable is declared but does not have a value. null !== undefined but null == undefined. Both are falsey.
