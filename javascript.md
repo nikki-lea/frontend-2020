@@ -408,7 +408,7 @@ Null is assigned and explicitly means nothing. Undefined mean that the variable 
 foo.com can only make requests to admin.foo.com, unless the endpoint at admin.foo.com as added the domain to their allow list.
 
 ### Event handlers with async
-Anytime you need to use an async method (e) => void myAsyncFunction(). Now no misused promises is saying you have a promise returning function and a void return is expected from the event. The reason its dangerous is because that event handler could be used as an `if (myEventHandler()) {}`.
+Anytime you need to use an async method `(e) => void myAsyncFunction()`. Now no misused promises is saying you have a promise returning function and a void return is expected from the event. The reason its dangerous is because that event handler could be used as an `if (myEventHandler()) {}`.
 	
 ### Jest and Act
 Put your redux dispatches and events in an act block. If you are missing the async from act such as `act(() => doSomething())` you can meet race conditions between the execution of the rendering and the resolution of the promise.
