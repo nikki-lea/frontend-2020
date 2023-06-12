@@ -417,7 +417,7 @@ Put your redux dispatches and events in an act block. If you are missing the asy
 await act(async () => {
 	fireEvent.click(firstResult);
 	await new Promise(proncess.nextTick();
-	});
+});
 
 await waitFor(() = {expect(..).toBeDefined()}
 ```
