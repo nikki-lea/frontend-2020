@@ -23,8 +23,8 @@
 [Promises And Async Await](#promises-and-async-await)  
 [Double and Triple Equals](#double-and-triple-equals)  
 [Same Origin Policy](#same-origin-policy)  
-[Event Handlers with Async](#event-handlers-with-async)
-[Jest and Act](#jest-and-act)
+[Event Handlers with Async](#event-handlers-with-async)  
+[Jest and Act](#jest-and-act)  
 
 ### Lexical scope and closures
 
