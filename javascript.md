@@ -23,6 +23,7 @@
 [Promises And Async Await](#promises-and-async-await)  
 [Double and Triple Equals](#double-and-triple-equals)  
 [Same Origin Policy](#same-origin-policy)  
+[Event Handlers with Async](#event-handlers-with-async)
 
 ### Lexical scope and closures
 
@@ -404,6 +405,9 @@ Null is assigned and explicitly means nothing. Undefined mean that the variable 
 
 ### Same Origin Policy
 foo.com can only make requests to admin.foo.com, unless the endpoint at admin.foo.com as added the domain to their allow list.
+
+### Event handlers with async
+Anytime you need to use an async method (e) => void myAsyncFunction()
 
 References:
 - https://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes/  
