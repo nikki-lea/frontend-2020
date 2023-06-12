@@ -386,6 +386,16 @@ Promises do not pause execution of the function, instead continuing, using any r
 
 The only time you should mix async await with Promises is with the use of Promise.all(). Don't mix async/await with then()/catch() syntax.
 
+Don't declare asynchronous functions without awaiting or handling it
+Don't use async with .then() since you aren't blocking processing in the method.
+When you have a myAsyncFunction that returns Promise<null> it will always return true since it returns a promise object
+	
+You can use
+	```const caller = async () => {
+		void myAsyncFunction();
+		console.log("Will continue");
+	```
+
 ### Null or Undefined
 Null is assigned and explicitly means nothing. Undefined mean that the variable is declared but does not have a value. null !== undefined but null == undefined. Both are falsey.
 
