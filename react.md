@@ -15,6 +15,8 @@
 
 [Controlled components in React](#controlled-components-in-react)
 
+[Hooks Usage in React](#hooks-usage-in-react)
+
 
 ### Data Fetching with Hooks
 Must be worked around this way using an async function will return an AsyncFunction object, whereas useEffect must return either nothing or a cleanup function. 
@@ -174,7 +176,7 @@ jsx part
         }[status]
       }
 ```
-Higher order components
+## React higher order components
 This is an example:
 ```
 // Higher-Order Component
@@ -224,6 +226,21 @@ Type:
 - value (if not assigned to state, and assigned to a constant, it will pin the value)
 Name: An identifier used for react, propagates the value with the event as e.target.name
 
+### Hooks Usage in React
+- A custom Hook is a JavaScript function whose name starts with ”use” and that may call other Hooks. 
+- Must be run in react components, operate on react component state, return no jsx
 
-https://medium.com/@guptagaruda/react-hooks-understanding-component-re-renders-9708ddee9928#08f6
-https://kentcdodds.com/blog/usememo-and-usecallback
+
+#### usePrevious
+```
+export function usePrevious(value) {
+  const ref = useRef();
+  useEffect(() => {
+    ref.current = value;
+  }, [value]);
+  return ref.current;
+}
+```
+[useDeepCompareEffect](https://github.com/kentcdodds/use-deep-compare-effect)    
+[React Hooks for Analytics](https://getanalytics.io/utils/react-hooks/)    
+[GraphQL Hooks](https://github.com/nearform/graphql-hooks#readme)
